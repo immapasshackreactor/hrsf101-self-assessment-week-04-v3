@@ -16,10 +16,8 @@ var server = http.createServer(function(request, response) {
     } else {
       globalCounter[property] += 1;
     }
-    console.log(globalCounter[property]);
     response.end();
   } else if (request.method === 'GET') {
-    console.log(globalCounter[property]); //true
     response.statusCode = 200;
     if (!globalCounter[property]) {
       response.end()
