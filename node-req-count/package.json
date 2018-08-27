@@ -6,9 +6,10 @@
   "main": "index.js",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "devDependencies": {
+    "nodemon": "^1.18.3",
     "request": "^2.72.0"
   }
 }
