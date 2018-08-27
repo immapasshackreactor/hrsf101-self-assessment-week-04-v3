@@ -9,11 +9,20 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6;
+/*
+ One publisher has many authors, and one author has many publishers. This is a many-many
+ relationship, which requires a join table for efficient storage and access.
+*/
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherGenreSchema =  Schemas.OPTION_4;
+/*
+ One publisher has one genre, and one genre has many publishers. This is a one-to-many
+ relationship, which requires the 'many' (publishers) to store the id of their 'one' (genre). 
+*/
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlAuthorGenreSchema =  Schemas.OPTION_6;
+/*
+ One author has many genres, and one genre has many authors. This is a many-many
+ relationship, which requires a join table for efficient storage and access.
+*/

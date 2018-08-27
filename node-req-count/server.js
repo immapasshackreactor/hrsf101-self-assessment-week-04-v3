@@ -5,18 +5,33 @@ var path = require('path');
 var globalCounter = {};
 
 var server = http.createServer(function(request, response) {
-  var endpoint = url.parse(request.url, true).pathname;
-  var property = endpoint.replace(/^\//, '');
+  request.on('error', (error) => console.log(error));
+  
+  let endpoint = url.parse(request.url, true).pathname;
+  let property = endpoint.replace(/^\//, '');
+  let exists = globalCounter.hasOwnProperty(property);
+
 
   if (request.method === 'POST') {
-    // YOUR CODE HERE
+    exists ? globalCounter[property]++ : globalCounter[property] = 1;
+    response.on('error', (error) => console.log(error));
+    response.statusCode = 201;
+    response.end();
   } else if (request.method === 'GET') {
-    // YOUR CODE HERE
+    response.on('error', (error) => console.log(error));
+    response.statusCode = 200;
+    if (exists) {
+      response.end(JSON.stringify(globalCounter[property]));
+    } else {
+      response.end();
+    }
   } else {
+    response.on('error', (error) => console.log(error));
     response.statusCode = 404;
     response.end();
   }
 });
 
+// Add response and request error handling?
 // Do not edit this line
 module.exports = server;
