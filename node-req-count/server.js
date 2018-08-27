@@ -9,9 +9,28 @@ var server = http.createServer(function(request, response) {
   var property = endpoint.replace(/^\//, '');
 
   if (request.method === 'POST') {
-    // YOUR CODE HERE
+    //Var-endpoint parses the URL then var-property replaces certain special characters using regex;
+    //Prompt says globalCounter object should have that request's property incremented in a counter
+    //If that property does not exist, set to 1, otherwise add 1 to existing property's value
+    if (globalCounter.hasOwnProperty(property)) {
+      globalCounter[property]++;
+    } else {
+      globalCounter[property] = 1;
+    }
+    response.statusCode = 201;
+    response.end();
   } else if (request.method === 'GET') {
-    // YOUR CODE HERE
+    //Take the property and check if it exists in globalCounter
+    //If it does, respond with the "counter" value
+    //Otherwise, respond with an empty value (empty string)
+    var responseBody = '';
+    if (globalCounter.hasOwnProperty(property)) {
+      responseBody += globalCounter[property]
+    } else {
+      responseBody = '';
+    }
+      response.statusCode = 200;
+      response.end(responseBody);
   } else {
     response.statusCode = 404;
     response.end();
