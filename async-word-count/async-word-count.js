@@ -15,6 +15,26 @@ var getWordCount = function(filePath, callback) {
 
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
   // YOUR CODE HERE
+  // pass the combined word count to the callback following node-style callback 
+  var finalCount = 0; 
+
+  getWordCount(filePathOne, (err, results) => {
+    if (err) {
+      console.log('error in file path')
+    } else {
+      finalCount += wordCount; 
+    }
+  }
+  getWordCount(filePathTwo, (err, results) => {
+    if (err) {
+      console.log('error in file path')
+    } else {
+      finalCount += wordCount; 
+    }
+  }
+
+  callback(finalCount); 
+   
 };
 
 module.exports = getTotalWordCount;
