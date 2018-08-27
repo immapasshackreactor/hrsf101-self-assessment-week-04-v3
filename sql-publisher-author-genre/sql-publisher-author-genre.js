@@ -9,11 +9,14 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherAuthorSchema =  Schemas.OPTION_3; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
+// If one publisher has many authors, that publisher's id should link to each author
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherGenreSchema =  Schemas.OPTION_5; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
+// Many to many relationship, should link to one another
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlAuthorGenreSchema =  Schemas.OPTION_5; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
+// Many to many relationship, should link to one another
