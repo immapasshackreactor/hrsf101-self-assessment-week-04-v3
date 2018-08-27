@@ -10,8 +10,23 @@ var server = http.createServer(function(request, response) {
 
   if (request.method === 'POST') {
     // YOUR CODE HERE
-  } else if (request.method === 'GET') {
+    if (!globalCounter[property]) {
+      globalCounter[property] = 0;
+    }
+    globalCounter[property]++;
+    response.writeHead(200);
+    response.end();
+
+  } else if (request.method === 'GET' ) {
     // YOUR CODE HERE
+    response.statusCode = 200;
+    if (!globalCounter[property]) {
+      response.end();
+    } else {
+      // console.log('===================' +globalCounter[property]);
+      response.end(globalCounter[property].toString());
+    }
+
   } else {
     response.statusCode = 404;
     response.end();
