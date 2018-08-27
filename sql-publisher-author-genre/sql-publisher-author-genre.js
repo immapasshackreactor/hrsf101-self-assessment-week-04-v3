@@ -9,11 +9,14 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6; // TODO: Update this constant
+// TODO: Option 6 is optimal here because publisher and author have a many-many ratio. Authors can have many publishers and publishers
+// can have many authors. Therefore, we need a separate table to keep track of the multiple connections every primary key from both tables have.
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherGenreSchema =  Schemas.OPTION_4; // TODO: Update this constant
+// TODO: Option 4 is optimal here because publisher and genre have a many-one ratio. Genres can have many publishers but each publisher
+// can only have 1. Therefore, we have a foreign key within the publisher's table referencing the genre's primary key id.
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlAuthorGenreSchema =  Schemas.OPTION_6; // TODO: Update this constant
+// TODO: Option 6 is optimal here because genre and author have a many-many ratio. Authors can have many genres and genres
+// can have many authors. Therefore, we need a separate table to keep track of the multiple connections every primary key from both tables have.
