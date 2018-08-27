@@ -9,11 +9,15 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6; // TODO: Update this constant
+// Many authors and only one genre: you don't want to put more than one thing in the same column per row, 
+// so adding the publisher id and author id makes sense
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherGenreSchema =  Schemas.OPTION_4; // TODO: Update this constant
+// Has many publishers, has many genres: because one author can have both many publishers and genres, linking
+//genre id to publisher minimizes size
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlAuthorGenreSchema =  Schemas.OPTION_6; // TODO: Update this constant
+// Has many publishers, has many authors: because one genre can have multiple pubishers and authors,  creating
+// a join table for genre countaing the publisher and author to see the proper relation for each makes
+// the most sense
