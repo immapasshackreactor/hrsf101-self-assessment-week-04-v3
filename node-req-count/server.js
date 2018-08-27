@@ -9,9 +9,25 @@ var server = http.createServer(function(request, response) {
   var property = endpoint.replace(/^\//, '');
 
   if (request.method === 'POST') {
-    // YOUR CODE HERE
+    request.end(data, function(err) {
+      if (err) {
+        console.log('error!' + err);
+        return;
+      } else {
+        globalCounter[globalCounter] = globalCounter[globalCounter]++ || (globalCounter[globalCounter] = 1);
+        response.end();
+      }
+    });
   } else if (request.method === 'GET') {
-    // YOUR CODE HERE
+    request.end(globalCounter[endpoint], function(err, data) {
+      if (err) {
+        console.log('error!' + err);
+        return;
+      } else {
+        response.statusCode = 200;
+        response.end(stringify(data));
+      }
+    })
   } else {
     response.statusCode = 404;
     response.end();
