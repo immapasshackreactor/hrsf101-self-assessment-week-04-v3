@@ -9,9 +9,23 @@ var server = http.createServer(function(request, response) {
   var property = endpoint.replace(/^\//, '');
 
   if (request.method === 'POST') {
-    // YOUR CODE HERE
+    console.log(property)
+    if(globalCounter.property === undefined) {
+      globalCounter.property = 1;
+    } else {
+      globalCounter.property++;
+    }
+    response.statusCode = 200
+    response.end()
   } else if (request.method === 'GET') {
-    // YOUR CODE HERE
+    if(globalCounter.proerty === undefined) {
+      response.statusCode = 200;
+      response.end()
+    } else {
+      response.statusCode = 200;
+      response.end(globalCounter.property)
+    }
+
   } else {
     response.statusCode = 404;
     response.end();
