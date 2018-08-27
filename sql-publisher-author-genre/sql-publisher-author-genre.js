@@ -9,11 +9,17 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6; // TODO: Update this constant
+//Foreign key ids can be placed in a joined table describing the connections between author and publisher.
+  //there author and publisher list can be stored on seperate tables; keeps tables clear as to what they are depicting
 // TODO: Write a comment here explaining your choice
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherGenreSchema =  Schemas.OPTION_4; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
+//publishers are only tied to one genre; therre can be multiple publishers tied to a single genre
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
+
+var sqlAuthorGenreSchema =  Schemas.OPTION_6; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
+//This is a many to many relationship; there needs to be a table created to depict the multiple 
+//relationships that can exist between and author and different genres
