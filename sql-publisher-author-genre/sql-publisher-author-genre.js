@@ -9,11 +9,18 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6;
+//publisher and author have a many to many relationship which requires a join table that consists of both entities' primary keys as its foreign keys
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+var sqlPublisherGenreSchema =  Schemas.OPTION_4; 
+//the two have a one to many relationship. While a publisher can only have one genre, a genre can have many publishers. 
+//this kind of relationship requires a foreign key on the many side (publisher table)
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+
+var sqlAuthorGenreSchema =  Schemas.OPTION_6; 
+//Authors and Genres have a many to many relationship. As stated above, this kind of relationship requires a join table that consists of two foreign keys. 
+
+
+// * publisher, has many authors, has one genre
+// * author, has many publishers, has many genres
+// * genre, has many publishers, has many authors

@@ -9,9 +9,15 @@ var server = http.createServer(function(request, response) {
   var property = endpoint.replace(/^\//, '');
 
   if (request.method === 'POST') {
-    // YOUR CODE HERE
+    if (globalCounter[property] === undefined) {
+      globalCounter[property] = 0; 
+    };
+    globalCounter[property]++;
+    response.writeHead(201, {'Content-type': 'Application/JSON'});
+    response.end(`count: ${globalCounter[property]}`);
   } else if (request.method === 'GET') {
-    // YOUR CODE HERE
+    response.writeHead(200, {'Content-type': 'Application/JSON'});
+    response.end(JSON.stringify(globalCounter[property]));
   } else {
     response.statusCode = 404;
     response.end();
