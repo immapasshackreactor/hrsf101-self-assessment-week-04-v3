@@ -14,7 +14,20 @@ var getWordCount = function(filePath, callback) {
 };
 
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
-  // YOUR CODE HERE
+  //store sum in storage
+  var sumOfWords = 0; 
+  //use word count func to access and count each word of file one 
+    // add results to storage sum
+  // use word count func to access and count each word of file two
+    // add results to storage sum
+  // return storage sum
+  // var first = getWordCount(filePathOne, (err, data) => {
+  
+  // })
+  // var second = getWordCount(fi)
+  // })
+  
+
 };
 
 module.exports = getTotalWordCount;
