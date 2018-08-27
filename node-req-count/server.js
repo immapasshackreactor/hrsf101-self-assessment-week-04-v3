@@ -10,8 +10,19 @@ var server = http.createServer(function(request, response) {
 
   if (request.method === 'POST') {
     // YOUR CODE HERE
+    if(!globalCounter[poperty]){
+      globalCounter[property] === 0;
+    }
+
+    globalCounter[property] ++;
+    response.writeHead(201, {'Content-Type':'application/JSON'});
+    response.end(`Global Counter: ${globalCounter[property]}`);
+
   } else if (request.method === 'GET') {
     // YOUR CODE HERE
+    response.writeHead(200, {'Content-Type':'application/JSON'});
+    response.end(JSON.stringify(globalCounter[property]));
+
   } else {
     response.statusCode = 404;
     response.end();
@@ -20,3 +31,4 @@ var server = http.createServer(function(request, response) {
 
 // Do not edit this line
 module.exports = server;
+

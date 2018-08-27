@@ -9,11 +9,17 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
+Both foreign key should be in this table because they are multiple authors per publisher and genre
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherGenreSchema =  Schemas.OPTION_4; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
+This show the correct placement of foreign keys
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+
+var sqlAuthorGenreSchema =  Schemas.OPTION_6; // TODO: Update this constant
+
+Both of the foreign keys should show in the Autor/Genre
+
+
