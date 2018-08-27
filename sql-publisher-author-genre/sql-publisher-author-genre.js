@@ -9,6 +9,8 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
+//I cannot see the demo!
+
 var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
 
