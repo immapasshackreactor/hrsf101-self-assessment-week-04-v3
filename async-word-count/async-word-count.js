@@ -15,14 +15,18 @@ var getWordCount = function(filePath, callback) {
 
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
   getWordCount(filePathOne, (err, firstWordCount) => {
-    getWordCount(filePathTwo, (err, secondWordCount) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        var total = firstWordCount + secondWordCount;
-        callback(null, total);
-      }
-    });
+    if (err) {
+      callback(err, null);
+    } else {
+      getWordCount(filePathTwo, (err, secondWordCount) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          var total = firstWordCount + secondWordCount;
+          callback(null, total);
+        }
+      });
+    }
   });
 };
 
