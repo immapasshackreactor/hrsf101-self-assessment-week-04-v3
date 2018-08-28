@@ -15,7 +15,6 @@ var server = http.createServer(function(request, response) {
     // }).on('end', () => {
     response.statusCode = 200;
     reponse.end();
-  }
     // let body = [];
     // request.on('data', (chunk) => {
     //   body.push(chunk);
