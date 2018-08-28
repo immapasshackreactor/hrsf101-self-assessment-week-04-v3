@@ -14,10 +14,17 @@ var getWordCount = function(filePath, callback) {
 };
 
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
-  if (!item) {
-    callback(err);
-  } else {
-    callback(null, getWordCount(filePathOne() + getWordCount(filePathTwo());
+  getWordCount(filePathOne, (err, wordCountOne) => {
+    if (err) {
+      throw err;
+    }
+    getwordCount(filePathTwo, (err, wordcountTwo) => {
+      if (err) {
+        throw err;
+      }
+      callback(null, getWordCountOne + getWordCountTwo);
+    })
+  })
 };
 
-module.exports = getTotalWordCount;
+
