@@ -1,6 +1,5 @@
 var url = require("url");
 var http = require("http");
-var path = require("path");
 
 var globalCounter = {};
 
@@ -9,14 +8,16 @@ var server = http.createServer(function(request, response) {
   var property = endpoint.replace(/^\//, "");
 
   if (request.method === "POST") {
-    // YOUR CODE HERE
+
     if (endpoint === "/dogs") {
+      console.log(endpoint);
       if (!globalCounter.dogs) {
         globalCounter.dogs = 1;
       } else {
         globalCounter.dogs++;
       }
-      response.end('Dogs Incremented');
+      response.statusCode = 201;
+      response.end();
     }
     if (endpoint === "/cats") {
       if (!globalCounter.cats) {
@@ -24,30 +25,35 @@ var server = http.createServer(function(request, response) {
       } else {
         globalCounter.cats++;
       }
-      response.end('Cats incremented');
+      response.statusCode = 201;
+      response.end();
     }
   } else if (request.method === "GET") {
     // YOUR CODE HERE
     if (endpoint === "/dogs") {
       if (!globalCounter.dogs) {
-        response.write("Empty");
       } else {
         response.write(JSON.stringify(globalCounter.dogs));
       }
+      response.statusCode = 201;
       response.end();
     }
     if (endpoint === "/cats") {
       if (!globalCounter.cats) {
-        response.write("Empty");
       } else {
         response.write(JSON.stringify(globalCounter.cats));
       }
+      response.statusCode = 201;
+      response.end();
+    } else {
+      response.statusCode = 201;
       response.end();
     }
   } else {
     response.statusCode = 404;
     response.end();
   }
+
 });
 
 // Do not edit this line
