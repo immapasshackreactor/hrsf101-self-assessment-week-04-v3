@@ -17,6 +17,7 @@ var server = http.createServer(function(request, response) {
 
   if (request.method === 'POST') {
     incrementer(property);
+    response.end();
   } else if (request.method === 'GET') {
       if (globalCounter[property]) {
         return globalCounter[property].toString();
