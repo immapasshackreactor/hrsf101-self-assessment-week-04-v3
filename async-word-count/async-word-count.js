@@ -26,5 +26,4 @@ var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
     })
   })
 };
-
-
+module.exports = getTotalWordCount;
