@@ -13,7 +13,7 @@ var server = http.createServer(function(request, response) {
 //have to increase the property, make sure to see if property is defined, else increment by one
 
     if (globalCounter[property] === undefined) {
-      globalCounter[property] = 0
+      globalCounter[property] = 1
     } else {
       globalCounter[property]++
     }
@@ -26,7 +26,7 @@ var server = http.createServer(function(request, response) {
 
       if (globalCounter[property] !== undefined) {
         response.writeHead(200, {'Content-Type':'application/JSON'});
-        response.end(JSON.stringify(globalCounter[property]));
+        response.end(globalCounter[property]);
       } else {
         response.writeHead(200, {'Content-Type':'application/JSON'});
         response.end();
