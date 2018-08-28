@@ -22,7 +22,7 @@ var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
     }
     getWordCount(filePathTwo, function(error, wordC) {
       if (error) {
-        callback(err, null);  
+        callback(error, null);  
         return;
       }
       callback(null, wordCount + wordC);

@@ -11,11 +11,11 @@ var server = http.createServer(function(request, response) {
   if (request.method === 'POST') {
     // YOUR CODE HERE
     // request.on('data', () => {
-      globalCounter[property] ? globalCouner[property] ++ : globalCounter[property] = 1;
+    globalCounter[property] ? globalCouner[property] ++ : globalCounter[property] = 1;
     // }).on('end', () => {
-      response.statusCode = 200;
-      reponse.end();
-    })
+    response.statusCode = 200;
+    reponse.end();
+  }
     // let body = [];
     // request.on('data', (chunk) => {
     //   body.push(chunk);
