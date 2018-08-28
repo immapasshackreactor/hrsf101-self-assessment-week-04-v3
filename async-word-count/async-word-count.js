@@ -17,11 +17,9 @@ var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
   // Call getwordCount on filePathOne using a callback that adds the return value to the total count
   getWordCount(filePathOne, function(err, data) {
     var totalWordCount = data;
-    console.log(totalWordCount);
     getWordCount(filePathTwo, function(err, data) {
       totalWordCount += data;
-      console.log(totalWordCount);
-      return totalWordCount;
+      callback(null, totalWordCount);
     });
   });
   // Call getwordCount on filePathTwo using the same callback

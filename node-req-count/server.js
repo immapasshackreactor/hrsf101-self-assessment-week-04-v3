@@ -13,27 +13,22 @@ var server = http.createServer(function(request, response) {
     if (endpoint === "/dogs") {
       if (!globalCounter.dogs) {
         globalCounter.dogs = 1;
-        response.end("Dogs incremented");
       } else {
         globalCounter.dogs++;
-        response.end("Dogs incremented");
       }
-      response.end();
+      response.end('Dogs Incremented');
     }
     if (endpoint === "/cats") {
       if (!globalCounter.cats) {
         globalCounter.cats = 1;
-        response.end("Cats incremented");
       } else {
         globalCounter.cats++;
-        response.end("Cats incremented");
       }
-      response.end();
+      response.end('Cats incremented');
     }
   } else if (request.method === "GET") {
     // YOUR CODE HERE
     if (endpoint === "/dogs") {
-      console.log(globalCounter.dogs);
       if (!globalCounter.dogs) {
         response.write("Empty");
       } else {
@@ -42,7 +37,6 @@ var server = http.createServer(function(request, response) {
       response.end();
     }
     if (endpoint === "/cats") {
-      console.log(globalCounter.cats);
       if (!globalCounter.cats) {
         response.write("Empty");
       } else {
@@ -50,7 +44,6 @@ var server = http.createServer(function(request, response) {
       }
       response.end();
     }
-    response.end();
   } else {
     response.statusCode = 404;
     response.end();
