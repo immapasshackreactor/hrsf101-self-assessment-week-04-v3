@@ -27,6 +27,9 @@ var server = http.createServer(function(request, response) {
       }
       response.statusCode = 201;
       response.end();
+    } else {
+      response.statusCode = 201;
+      response.end('response');
     }
   } else if (request.method === "GET") {
     // YOUR CODE HERE
@@ -47,7 +50,7 @@ var server = http.createServer(function(request, response) {
       response.end();
     } else {
       response.statusCode = 201;
-      response.end();
+      response.end('response');
     }
   } else {
     response.statusCode = 404;
