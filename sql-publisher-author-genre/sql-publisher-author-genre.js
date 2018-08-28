@@ -9,14 +9,16 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
 // Option 6 ... we want to show a many to many relationship  
 
-var sqlPublisherGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlPublisherGenreSchema =  Schemas.OPTION_4; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
-// Option 5 ... we want to show that a publisher has one genre (so include genre_id) and that one genre could have many publishers (so include publisher_id)
+// Option 4 ... this is a one to many relationship (Publishers (many) <-----> Genres (one))
+// Therefore, we want to include the genre_id on the publisher table 
+// This means each publisher row will have one genre_id value which will point to the primary key of the genre table. 
 
-var sqlAuthorGenreSchema =  Schemas.FIX_ME; // TODO: Update this constant
+var sqlAuthorGenreSchema =  Schemas.OPTION_6; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
 // Option 6 ... we want to create a many to many relationship between authors and genres...  therefore we use a join table
