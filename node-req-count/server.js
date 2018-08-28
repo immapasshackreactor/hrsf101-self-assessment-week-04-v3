@@ -11,10 +11,10 @@ var server = http.createServer(function(request, response) {
   if (request.method === 'POST') {
     // YOUR CODE HERE
     // request.on('data', () => {
-    globalCounter[property] ? globalCouner[property] ++ : globalCounter[property] = 1;
+    globalCounter[property] ? globalCounter[property] ++ : globalCounter[property] = 1;
     // }).on('end', () => {
     response.statusCode = 200;
-    reponse.end();
+    response.end();
     // let body = [];
     // request.on('data', (chunk) => {
     //   body.push(chunk);
@@ -26,9 +26,12 @@ var server = http.createServer(function(request, response) {
 
   } else if (request.method === 'GET') {
     // YOUR CODE HERE
-    var reply = globalCounter[property].toString();
+    var reply = globalCounter[property];
+    if (reply) {
+      reply.toString();
+    }
     response.statusCode = 201;
-    response.end(reply);
+    response.end(`${reply}`);
 
   } else {
     response.statusCode = 404;
