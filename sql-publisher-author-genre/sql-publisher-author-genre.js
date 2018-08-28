@@ -9,13 +9,13 @@ var Schemas = {
 	OPTION_6: 'option 6',
 };
 
-var sqlPublisherAuthorSchema = Schemas.OPTION_4; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice - Publisher can have many Authors but an Author can have one publisher (Typically).v
+var sqlPublisherAuthorSchema = Schemas.OPTION_6; // TODO: Update this constant
+// TODO: Write a comment here explaining your choice - in Many-to-Many relationship, you need to create a join between two tables.
 
-var sqlPublisherGenreSchema = Schemas.OPTION_6; // TODO: Update this constant
+var sqlPublisherGenreSchema = Schemas.OPTION_4; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
-// Many-to-many relationship: Publisher can publish over many Genres and a certain genre can be published by many publishers.v
+// One-to-many relationship: You create a foreign id in the One-side.
 
 var sqlAuthorGenreSchema = Schemas.OPTION_6; // TODO: Update this constant
 // TODO: Write a comment here explaining your choice
-// Similar reasoning as above.
+// Similar reasoning as sqlPublisherAuthorSchema.

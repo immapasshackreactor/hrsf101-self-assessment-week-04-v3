@@ -7,7 +7,6 @@ var getWordCount = function(filePath, callback) {
 			callback(err, null);
 			return;
 		}
-
 		var wordCount = data.trim().split(' ').length;
 		callback(null, wordCount);
 	});
