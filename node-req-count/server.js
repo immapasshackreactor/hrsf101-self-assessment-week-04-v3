@@ -10,9 +10,10 @@ var server = http.createServer(function(request, response) {
 
   if (request.method === 'POST') {
     // YOUR CODE HERE
-    request.on('data', () => {
+    // request.on('data', () => {
       globalCounter[property] ? globalCouner[property] ++ : globalCounter[property] = 1;
-    }).on('end', () => {
+    // }).on('end', () => {
+      response.statusCode = 200;
       reponse.end();
     })
     // let body = [];
@@ -23,12 +24,11 @@ var server = http.createServer(function(request, response) {
     //   response.end(body);
     // })
 
-    // response.statusCode = 200;
-
 
   } else if (request.method === 'GET') {
     // YOUR CODE HERE
-    var reply = globalCounter[property];
+    var reply = globalCounter[property].toString();
+    response.statusCode = 201;
     response.end(reply);
 
   } else {
