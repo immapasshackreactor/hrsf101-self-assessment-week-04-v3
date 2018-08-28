@@ -20,15 +20,8 @@ var server = http.createServer(function(request, response) {
     response.end("posted");
   } else if (request.method === "GET") {
     console.log("GETTING");
-    // request
-    //   .on("data", chunk => {
-    //     body.push(chunk);
-    //   })
-    //   .on("end", () => {
-    //     body = Buffer.concat(body).toString();
-    //   });
     response.statusCode = 200;
-    response.end(`${globalCounter[property]}`);
+    response.end(JSON.stringify(globalCounter[property]));
   } else {
     response.statusCode = 404;
     response.end();
