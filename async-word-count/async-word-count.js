@@ -15,20 +15,35 @@ var getWordCount = function(filePath, callback) {
 
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
   var countSum = 0;
-  var handleCount = function(error, count) {
-    if (error) {
-      throw new Error('Count Error!');
-    }
+
+  const handleCount = function(count) {
     countSum += count;
   };
 
   getWordCount(filePathOne, (error, fileOneCount) => {
-    handleCount(error, fileOneCount);
+    if (error) {
+      callback(error);
+      return;
+    }
+    handleCount(fileOneCount);
+
     getWordCount(filePathTwo, (error, fileTwoCount) => {
-      handleCount(error, fileTwoCount);
-      callback(countSum);
+      if (error) {
+        callback(error);
+        return;
+      }
+      handleCount(fileTwoCount);
+      callback(null, countSum);
     });
   });
 };
+
+// getTotalWordCount(
+//   path.join(__dirname, 'files/fileOne.txt'),
+//   path.join(__dirname, 'files/fileTwo.txt'),
+//   (error, count) => {
+//     console.log(count);
+//   }
+// );
 
 module.exports = getTotalWordCount;
