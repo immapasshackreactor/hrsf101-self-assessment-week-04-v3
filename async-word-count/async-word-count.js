@@ -6,35 +6,23 @@ var getWordCount = function(filePath, callback) {
     if (err) {
       callback(err, null);
       return;
-    } else {
-      var wordCount = data.trim().split(" ").length;
-      callback(null, wordCount);
     }
+
+    var wordCount = data.trim().split(" ").length;
+    callback(null, wordCount);
   });
 };
 
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
-  fs.readFile(filePathOne, "utf-8", function(err, data) {
-    if (err) {
-      callback(err, null);
-      return;
-    } else {
-      function(err, data) {
-        if (err) {
-          callback(err, null);
-        } else {
-          fs.readFile(filePathTwo, "utf-8", function(err, data2) {
-            if(err) {
-              callback(err, null);
-              return;
-            } else {
-              var wordCount = data.trim().split(" ").length + data2.trim().split(" ").length;
-              callback(null, wordCount);
-            }
-          });
-        }
+  getWordCount(filePathOne, (err, firstWordCount) => {
+    getWordCount(filePathTwo, (err, secondWordCount) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        var total = firstWordCount + secondWordCount;
+        callback(null, total);
       }
-    }
+    });
   });
 };
 

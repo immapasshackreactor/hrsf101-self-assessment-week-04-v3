@@ -10,24 +10,25 @@ var server = http.createServer(function(request, response) {
   let body = [];
   if (request.method === "POST") {
     console.log("POSTING");
-    if (!globalCounter.property) {
-      globalCounter.property = 1;
+    if (!globalCounter[property]) {
+      globalCounter[property] = 1;
     } else {
-      globalCounter.property++;
+      globalCounter[property]++;
     }
-    console.log(globalCounter.property);
+    console.log(globalCounter[property]);
     response.statusCode = 201;
     response.end("posted");
   } else if (request.method === "GET") {
-    // console.log(request.body);
+    console.log("GETTING");
     // request
     //   .on("data", chunk => {
     //     body.push(chunk);
     //   })
     //   .on("end", () => {
     //     body = Buffer.concat(body).toString();
+    //   });
     response.statusCode = 200;
-    response.end(globalCounter.property);
+    response.end(`${globalCounter[property]}`);
   } else {
     response.statusCode = 404;
     response.end();
