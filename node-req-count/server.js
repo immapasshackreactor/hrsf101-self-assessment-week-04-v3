@@ -24,7 +24,7 @@ var server = http.createServer(function(request, response) {
     if (globalCounter[property]) {
       response.end(JSON.stringify(globalCounter[property]))
     } else {
-      response.end(JSON.stringify(''))
+      response.end(JSON.stringify())
     }
   } else {
     response.statusCode = 404;
