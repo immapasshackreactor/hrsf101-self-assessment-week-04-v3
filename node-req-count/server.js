@@ -17,7 +17,7 @@ var server = http.createServer(function(request, response) {
     } else {
       globalCounter[property]++
     }
-    response.writeHead(201, {'Content-Type': 'application/json'});
+    response.writeHead(201);
     response.end(globalCounter[property])
 
   } else if (request.method === 'GET') {
@@ -25,10 +25,10 @@ var server = http.createServer(function(request, response) {
       //if no property, return empty response
 
       if (globalCounter[property] !== undefined) {
-        response.writeHead(200, {'Content-Type':'application/JSON'});
+        response.writeHead(200);
         response.end(globalCounter[property]);
       } else {
-        response.writeHead(200, {'Content-Type':'application/JSON'});
+        response.writeHead(200);
         response.end();
       }
   } else {
