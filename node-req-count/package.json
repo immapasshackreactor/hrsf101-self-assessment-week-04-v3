@@ -6,7 +6,7 @@
   "main": "index.js",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon /Users/tomcostello/Immersive/hrsf101-self-assessment-week-04-v3/node-req-count/index.js"
   },
   "devDependencies": {
     "request": "^2.72.0"
