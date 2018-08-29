@@ -9,8 +9,8 @@ var Schemas = {
   OPTION_6: 'option 6'
 };
 
-var sqlPublisherAuthorSchema =  Schemas.OPTION_3; // TODO: Update this constant
-//This is a one to one relationship, we need the foreign key in the author to 
+var sqlPublisherAuthorSchema =  Schemas.OPTION_6; // TODO: Update this constant
+//This is a many to many relationship, we need a seperate table to 
 //help keep track and organized
 
 var sqlPublisherGenreSchema =  Schemas.OPTION_4; // TODO: Update this constant
