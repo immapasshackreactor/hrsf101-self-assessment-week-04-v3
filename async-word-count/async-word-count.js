@@ -13,9 +13,9 @@ var getWordCount = function(filePath, callback) {
   });
 };
 
+var getTotalWordCount = 0;
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
   // YOUR CODE HERE
-  var getTotalWordCount = 0;
   getWordCount(filePathOne, (err, data) => {
     getTotalWordCount += data;
     getWordCount(filePathTwo, (err, data2) => {

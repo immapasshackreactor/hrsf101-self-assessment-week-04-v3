@@ -12,18 +12,18 @@ var server = http.createServer(function(request, response) {
   var property = endpoint.replace(/^\//, '');
 
   if (request.method === 'POST') {
-    if (request.url === '/dogs') {
+    if (property === '/dogs') {
       globalCounter.dogs++;
       response.end();
-    } else if ( request.url === '/cats') {
+    } else if ( property === '/cats') {
       globalCounter.cats++;
       response.end();
     }
   } else if (request.method === 'GET') {
-    if (request.url === '/dogs') {
+    if (property === '/dogs') {
       request.write(JSON.stringify(globalCounter.dogs),encoding='utf8');
       response.end();
-    } else if ( request.url === '/cats') {
+    } else if ( property === '/cats') {
       request.write(JSON.stringify(globalCounter.cats),encoding='utf8');
       response.end();
     }
