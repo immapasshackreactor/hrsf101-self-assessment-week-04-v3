@@ -8,12 +8,14 @@ var server = http.createServer(function(request, response) {
   // creates a request obj & response obj -- review old sprints 
   // console.log these... 
   var endpoint = url.parse(request.url, true).pathname;
+  console.log(endpoint); 
   // takes a url string, parses it, and returns a URL object 
   var property = endpoint.replace(/^\//, '');
+  console.log(property);
   // var port = 8000; 
   // var ip = 'localhost'; 
 
-  if (request.method === 'POST' && request.url === '/dogs') {
+  if (request.method === 'POST') {
     // YOUR CODE HERE
     response.statusCode = 201; 
     if (globalCounter[property] === undefined){
@@ -23,7 +25,7 @@ var server = http.createServer(function(request, response) {
     }
     console.log(globalCounter); 
     response.end(); 
-  } else if (request.method === 'GET' && request.url === '/dogs') {
+  } else if (request.method === 'GET') {
     if (globalCounter[property] !== undefined) {
       response.writeHead(200);
       response.end(globalCounter[property].toString());
