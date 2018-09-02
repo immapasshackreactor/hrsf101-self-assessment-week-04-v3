@@ -14,19 +14,19 @@ var getWordCount = function(filePath, callback) {
 };
 
 var getTotalWordCount = function(filePathOne, filePathTwo, callback) {
-  //I: two files and a callback that accepts the sum of words in each file
-  //O: callback that takes in the combined sum of words in each file
-  //strategy: call getWordCount for each file and pass the 
-    //call getWordCount
-    getWordCount(filePathOne, filePathTwo, (err, data) => {
+
+    getWordCount(filePathOne, (err, count1) => {
       if (err) {
         throw err;
-        console.log('there was an error');
       }
-      callback(null, filePathOne, filePathTwo);
+      getWordCount(filePathTwo, (err, count2) => {
+        if (err) {
+          throw err;
+        }
+        callback(null, count1 + count2);
+      })
+      
     })
-      //if error, callback err, err, null 
-      //else pass files to wordcount with err set to null 
 
 };
 
