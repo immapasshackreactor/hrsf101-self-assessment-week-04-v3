@@ -10,10 +10,9 @@ var Schemas = {
 };
 
 var sqlPublisherAuthorSchema =  Schemas.OPTION_6 // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+//authors and publishers have a many to many relationship, so we need to create a table to keep store IDs for both
 
 var sqlPublisherGenreSchema =  Schemas.OPTION_4; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
-
-var sqlAuthorGenreSchema =  Schemas.OPTION_6; // TODO: Update this constant
-// TODO: Write a comment here explaining your choice
+//publishers can only have one genre, so we need to store genre IDs in the publisher table
+var sqlAuthorGenreSchema =  Schemas.OPTION_6; 
+//authors and publishers have a many to many relationship, so we need to create a table to keep store IDs for both
